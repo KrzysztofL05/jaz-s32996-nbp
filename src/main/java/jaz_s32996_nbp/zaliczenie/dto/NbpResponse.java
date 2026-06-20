@@ -1,4 +1,4 @@
-package jaz_s32996_nbp.zaliczenie;
+package jaz_s32996_nbp.zaliczenie.dto;
 
 import java.math.BigDecimal;
 import java.util.List;
