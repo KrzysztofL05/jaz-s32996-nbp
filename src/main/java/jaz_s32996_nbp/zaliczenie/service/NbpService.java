@@ -31,12 +31,12 @@ public class NbpService {
             throw new RuntimeException("Data początkowa nie może być późniejsza od końcowej");
         }
 
-        if (startDate.plusDays(367).isBefore(endDate)) {
-            throw new RuntimeException("Zakres dat nie może przekraczać 367 dni");
+        if (startDate.plusDays(93).isBefore(endDate)) {
+            throw new RuntimeException("Zakres dat nie może przekraczać 93 dni (limit API NBP)");
         }
 
         String url = "http://api.nbp.pl/api/exchangerates/rates/a/"
-                + currency + "/"
+                + currency.toLowerCase() + "/"
                 + startDate + "/"
                 + endDate + "/?format=json";
 
@@ -71,11 +71,11 @@ public class NbpService {
             return average;
 
         } catch (HttpClientErrorException e) {
-            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+            if (e.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
                 throw new RuntimeException("Nie znaleziono danych dla podanej waluty lub zakresu dat.");
             }
 
-            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+            if (e.getStatusCode().isSameCodeAs(HttpStatus.BAD_REQUEST)) {
                 throw new RuntimeException("Niepoprawne zapytanie do API NBP.");
             }
 
