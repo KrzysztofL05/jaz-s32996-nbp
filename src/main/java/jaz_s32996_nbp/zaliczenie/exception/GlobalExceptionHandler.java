@@ -11,6 +11,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String handleRuntimeException(RuntimeException e) {
+
         return e.getMessage();
     }
 }

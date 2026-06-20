@@ -33,7 +33,8 @@ public class CurrencyQuery {
                          LocalDate startDate,
                          LocalDate endDate,
                          BigDecimal calculatedRate,
-                         LocalDateTime queryDateTime) {
+                         LocalDateTime queryDateTime)
+    {
         this.currency = currency;
         this.startDate = startDate;
         this.endDate = endDate;
