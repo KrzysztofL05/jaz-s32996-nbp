@@ -1,6 +1,10 @@
-package jaz_s32996_nbp.zaliczenie;
+package jaz_s32996_nbp.zaliczenie.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,8 +29,11 @@ public class CurrencyQuery {
     public CurrencyQuery() {
     }
 
-    public CurrencyQuery(String currency, LocalDate startDate, LocalDate endDate,
-                         BigDecimal calculatedRate, LocalDateTime queryDateTime) {
+    public CurrencyQuery(String currency,
+                         LocalDate startDate,
+                         LocalDate endDate,
+                         BigDecimal calculatedRate,
+                         LocalDateTime queryDateTime) {
         this.currency = currency;
         this.startDate = startDate;
         this.endDate = endDate;
